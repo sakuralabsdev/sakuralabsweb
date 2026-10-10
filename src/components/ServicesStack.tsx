@@ -17,45 +17,84 @@ const services: ServiceItem[] = [
     id: "01",
     number: "01",
     title: "Web Development",
-    tags: ["High-Performance Next.js", "Full-Stack Web Apps"],
+    tags: [
+      "Custom Next.js & React Apps",
+      "Full-Stack Web Engineering",
+      "E-Commerce & High-Speed CMS",
+      "API & Database Architecture",
+    ],
     description:
-      "Engineering lightning-fast, scalable web applications and interactive websites built with modern tech stacks. Built for peak speed, SEO, and flawless conversions.",
+      "Engineering ultra-fast, robust web applications and modern websites built with Next.js, React, Node.js, and scalable cloud architectures. Optimized for sub-second load times, technical SEO, bulletproof security, and peak conversion rates across Kerala, India, UAE, and international markets.",
     accentColor: "#ff5500",
   },
   {
     id: "02",
     number: "02",
-    title: "App Development",
-    tags: ["iOS & Android Native", "Seamless Cross-Platform"],
+    title: "Web Designing & UI/UX",
+    tags: [
+      "Bespoke UI/UX Design",
+      "Figma Design Systems",
+      "High-Converting Landing Pages",
+      "Responsive Interactive Aesthetics",
+    ],
     description:
-      "Building sleek, intuitive mobile applications engineered for peak performance and user retention. From rapid MVP launches to scaling active users.",
+      "Crafting visually captivating, conversion-obsessed web designs and responsive digital interfaces. We merge modern aesthetic hierarchy with effortless usability, micro-interactions, and psychological design patterns that turn visitors into brand advocates.",
     accentColor: "#ff5500",
   },
   {
     id: "03",
     number: "03",
-    title: "Performance Ads",
-    tags: ["Meta & Google Ads", "High ROI & Media Buying"],
+    title: "GEO, AEO & Advanced SEO",
+    tags: [
+      "Generative Engine Optimization",
+      "Answer Engine Optimization",
+      "AI Search (ChatGPT & Perplexity)",
+      "Technical & Local SEO",
+    ],
     description:
-      "Laser-targeted advertising campaigns designed to acquire high-value customers with optimal cost per acquisition and maximized returns on ad spend.",
+      "Positioning your brand at the absolute forefront of modern AI search. We engineer semantic content, entity schemas, and authoritative citation architecture so your business is prominently recommended by ChatGPT, Perplexity, Google Gemini, and top Google rankings.",
     accentColor: "#ff5500",
   },
   {
     id: "04",
     number: "04",
-    title: "Digital Marketing",
-    tags: ["SEO & Search Dominance", "Organic Growth Systems"],
+    title: "App Development",
+    tags: [
+      "iOS & Android Native",
+      "Cross-Platform Flutter & React Native",
+      "Fluid Mobile UX",
+      "Scalable Cloud Backends",
+    ],
     description:
-      "Comprehensive organic growth strategies and data-driven marketing systems that build lasting audience loyalty and sustainable revenue pipelines.",
+      "Building sleek, intuitive mobile applications engineered for peak performance, high retention, and effortless offline capabilities. From rapid MVP launches for ambitious startups to scaling enterprise mobile ecosystems.",
     accentColor: "#ff5500",
   },
   {
     id: "05",
     number: "05",
-    title: "Brand & UI/UX Design",
-    tags: ["Visual Identity Systems", "Conversion-Driven UX"],
+    title: "Performance Ads",
+    tags: [
+      "Meta Ads (Instagram & FB)",
+      "Google Search & Performance Max",
+      "High-ROAS Media Buying",
+      "Full-Funnel CRO",
+    ],
     description:
-      "Crafting unforgettable brand identities and intuitive UI/UX design systems that elevate your perceived value and make your product an industry benchmark.",
+      "Laser-targeted advertising campaigns designed to acquire high-value customers with optimal cost per acquisition (CPA) and maximized returns on ad spend (ROAS) across domestic and international markets.",
+    accentColor: "#ff5500",
+  },
+  {
+    id: "06",
+    number: "06",
+    title: "Brand & Visual Identity",
+    tags: [
+      "Visual Identity Systems",
+      "Logo Design & Typography",
+      "Brand Guidelines & Strategy",
+      "Motion & Graphic Direction",
+    ],
+    description:
+      "Formulating unforgettable brand identities and intuitive design systems that elevate your perceived market value, instill instant trust, and make your business an unmistakable industry benchmark.",
     accentColor: "#ff5500",
   },
 ];

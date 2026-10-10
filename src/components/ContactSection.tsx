@@ -15,10 +15,12 @@ export default function ContactSection() {
 
   const servicesList = [
     "Web Development",
-    "App Dev (iOS & Android)",
-    "PC Software",
-    "Digital Design & Branding",
-    "Complete Experience",
+    "Web Design & UI/UX",
+    "GEO & AEO (AI Search)",
+    "Mobile App Dev (iOS & Android)",
+    "Performance Ads (Meta & Google)",
+    "Brand Design & Identity",
+    "Complete Digital Suite",
   ];
 
   const handleCopyEmail = () => {

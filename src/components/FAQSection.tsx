@@ -10,34 +10,40 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
   {
-    category: "Capabilities",
-    question: "What services does Sakura Labs specialize in?",
+    category: "Web Development & Design",
+    question: "What web development and web design services does Sakura Labs offer?",
     answer:
-      "We are a full-service digital agency specializing in custom Web Development, iOS & Android Mobile App Development, Performance Ads (Meta & Google Ads), Data-Driven Digital Marketing & SEO, and high-converting UI/UX Brand Design.",
+      "Sakura Labs specializes in custom Web Development (Next.js, React, Node.js, TypeScript, full-stack architectures) and conversion-focused Web Design (UI/UX design systems, bespoke Figma designs, e-commerce storefronts, and landing pages). Every website is engineered for sub-second page loads, mobile responsiveness, seamless interaction, and built-in search engine optimization.",
   },
   {
-    category: "Collaboration",
-    question: "How does the project collaboration process work?",
+    category: "Locations & Presence",
+    question: "Which locations and cities do you serve?",
     answer:
-      "We operate in close, agile sprints. From discovery and technical architecture to design and production-grade deployment, you have direct communication with our engineers and marketing strategists with regular milestone demos.",
+      "We serve clients across Kerala including Kozhikode, Malappuram, Thrissur, Kochi, Ernakulam, Kannur, and Trivandrum; nationally in major tech hubs such as Bengaluru, Delhi NCR, Indore, Nellore, Mumbai, and Hyderabad; and internationally in the UAE (Dubai, Abu Dhabi, Sharjah), Saudi Arabia (Riyadh, Jeddah), France (Paris), and worldwide. Our modern remote workflow ensures seamless timezone-aligned collaboration.",
   },
   {
-    category: "Timeline",
-    question: "What are your typical project timelines?",
+    category: "GEO & AEO Focus",
+    question: "What is GEO (Generative Engine Optimization) and AEO (Answer Engine Optimization)?",
     answer:
-      "Timelines depend on scope. Focused web builds or ad campaign setups typically launch within 1–2 weeks, while comprehensive web applications and full-scale mobile app platforms range from 3 to 6 weeks.",
+      "GEO (Generative Engine Optimization) and AEO (Answer Engine Optimization) are cutting-edge optimization methodologies that prepare your digital footprint for AI search engines like ChatGPT, Perplexity AI, Google Gemini, and Claude. Rather than solely targeting traditional search ranking algorithms, Sakura Labs structures your website's semantic content, Schema.org entities, and factual knowledge graphs so AI engines directly quote, cite, and recommend your business to users.",
   },
   {
-    category: "Partnership",
-    question: "Do you work with startups, businesses, or global clients?",
+    category: "Full-Service Offerings",
+    question: "What other digital services does Sakura Labs provide?",
     answer:
-      "Yes! We partner with early-stage startups seeking rapid product launches as well as growing companies looking to scale their digital presence, user acquisition, and online revenue.",
+      "Beyond web development and web design, Sakura Labs provides end-to-end digital solutions: native & cross-platform Mobile App Development (iOS & Android with Flutter and React Native), high-ROAS Performance Ads (Meta & Google Ads), Full-Funnel Digital Marketing, Technical & Local SEO, and complete Brand & Visual Identity systems.",
   },
   {
-    category: "Getting Started",
-    question: "How do we get started on a project together?",
+    category: "Collaboration & Delivery",
+    question: "How does the project collaboration process work for remote or international clients?",
     answer:
-      "Simply send us a message via our Contact form, WhatsApp (+91 87142 44119), or email us at sakuralabs.dev@gmail.com. We'll review your goals and get back to you within hours.",
+      "We operate in transparent, agile sprints. From discovery and technical architecture to design prototypes and production-grade deployment, you have direct access to our engineers and marketing strategists via dedicated WhatsApp/Slack channels, staging preview links, and scheduled milestone video walkthroughs.",
+  },
+  {
+    category: "Timelines & Getting Started",
+    question: "What are your typical project timelines and how do we get started?",
+    answer:
+      "Timelines depend on complexity. High-converting landing pages or specialized ad setups typically launch in 1–2 weeks, while bespoke custom web applications, e-commerce platforms, and mobile apps range between 3 to 6 weeks. To begin, reach out via our contact form, message us on WhatsApp (+91 87142 44119), or email sakuralabs.dev@gmail.com for a free architectural consultation.",
   },
 ];
 

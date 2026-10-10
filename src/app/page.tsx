@@ -5,6 +5,7 @@ import Image from "next/image";
 import Navbar, { NavSection } from "@/components/Navbar";
 import FlowingGallery from "@/components/FlowingGallery";
 import ServicesStack from "@/components/ServicesStack";
+import GlobalReach from "@/components/GlobalReach";
 import FAQSection from "@/components/FAQSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -17,8 +18,8 @@ export default function Home() {
   const cards = [
     {
       id: 1,
-      title: "Marketing",
-      subtitle: "SEO & Growth",
+      title: "GEO & AEO",
+      subtitle: "AI Search & Growth",
       bgGradient: "from-[#8b5cf6] via-[#7c3aed] to-[#5b21b6]",
       glowColor: "rgba(139, 92, 246, 0.4)",
       image: "/hero/fortnite.png",
@@ -78,8 +79,8 @@ export default function Home() {
     },
     {
       id: 5,
-      title: "Brand Design",
-      subtitle: "UI/UX & Identity",
+      title: "Web & UI Design",
+      subtitle: "Modern & Aesthetic",
       bgGradient: "from-[#3b82f6] via-[#2563eb] to-[#1d4ed8]",
       glowColor: "rgba(37, 99, 235, 0.4)",
       image: "/hero/splatoon.png",
@@ -130,21 +131,20 @@ export default function Home() {
         {/* Top Feature Pill Badge */}
         <div className="inline-flex items-center gap-2 bg-[#14151a]/90 border border-white/10 rounded-full px-3 py-0.5 sm:px-3.5 sm:py-1 shadow-md backdrop-blur-md mb-2.5 sm:mb-4 cursor-pointer hover:border-white/20 transition-all">
           <span className="text-sm sm:text-base leading-none">✨</span>
-          <span className="text-[#ff5500] font-bold text-[11px] sm:text-xs tracking-tight">Full-Service Digital Agency</span>
+          <span className="text-[#ff5500] font-bold text-[11px] sm:text-xs tracking-tight">Web Development, Design &amp; AI Search</span>
           <span className="text-zinc-400 text-[11px] sm:text-xs font-normal">• sakuralabs.in</span>
         </div>
 
         {/* Big Bold Headline */}
         <h1 className="text-3xl sm:text-5xl md:text-[66px] lg:text-[72px] font-extrabold tracking-tight text-white leading-[1.1] select-none">
-          Digital Services &amp;
+          Web Engineering, Design &amp;
           <br />
           Accelerated Growth
         </h1>
 
         {/* Subtitle with exact line breaks */}
-        <p className="text-[#8e8e93] text-xs sm:text-[14px] md:text-[15px] max-w-xl mx-auto mt-2 sm:mt-4 leading-relaxed font-normal select-none">
-          We engineer high-performance web applications, mobile apps, and data-driven marketing campaigns
-          <br className="hidden sm:inline" /> that scale brands and generate measurable results.
+        <p className="text-[#8e8e93] text-xs sm:text-[14px] md:text-[15px] max-w-2xl mx-auto mt-2 sm:mt-4 leading-relaxed font-normal select-none">
+          We engineer bespoke high-performance websites, conversion-obsessed web design, and AI search dominance (GEO &amp; AEO) for ambitious brands across Kerala, India, the Gulf, and worldwide.
         </p>
       </section>
 
@@ -215,10 +215,13 @@ export default function Home() {
       {/* THIRD SECTION: SERVICES STACKING LAYERS (OVERLAPPING ON SCROLL) */}
       <ServicesStack />
 
-      {/* FOURTH SECTION: FAQ ACCORDION */}
+      {/* FOURTH SECTION: GLOBAL REACH & REGIONAL PRESENCE (GEO & AEO) */}
+      <GlobalReach />
+
+      {/* FIFTH SECTION: FAQ ACCORDION */}
       <FAQSection />
 
-      {/* FIFTH SECTION: CONTACT & INQUIRY */}
+      {/* SIXTH SECTION: CONTACT & INQUIRY */}
       <ContactSection />
 
       {/* FOOTER */}

@@ -223,11 +223,12 @@ export default function Footer() {
                 Services
               </span>
               <ul className="mt-4 space-y-2.5 text-xs sm:text-sm text-zinc-400">
-                <li className="hover:text-zinc-200 transition-colors">Web Development</li>
-                <li className="hover:text-zinc-200 transition-colors">App Development</li>
-                <li className="hover:text-zinc-200 transition-colors">Performance Ads</li>
-                <li className="hover:text-zinc-200 transition-colors">Digital Marketing &amp; SEO</li>
-                <li className="hover:text-zinc-200 transition-colors">Brand &amp; UI/UX Design</li>
+                <li className="hover:text-zinc-200 transition-colors">Web Development (Next.js &amp; React)</li>
+                <li className="hover:text-zinc-200 transition-colors">Web Design &amp; UI/UX Systems</li>
+                <li className="hover:text-zinc-200 transition-colors">GEO &amp; AEO (AI Search Optimization)</li>
+                <li className="hover:text-zinc-200 transition-colors">Mobile App Development (iOS &amp; Android)</li>
+                <li className="hover:text-zinc-200 transition-colors">Performance Ads (Meta &amp; Google)</li>
+                <li className="hover:text-zinc-200 transition-colors">Brand &amp; Visual Identity Design</li>
               </ul>
             </div>
 
@@ -301,6 +302,63 @@ export default function Footer() {
                   </a>
                 </li>
               </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Global & Regional Presence Directory for SEO & GEO */}
+        <div className="py-8 border-b border-white/5">
+          <div className="flex flex-col gap-4">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <span className="text-xs font-mono uppercase text-zinc-400 tracking-wider flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#ff5500]" />
+                Target Delivery Locations (Local, National &amp; Global)
+              </span>
+              <span className="text-[11px] text-zinc-500">
+                Web Development • Web Design • GEO &amp; AEO • Mobile Apps
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs text-zinc-400">
+              {/* Kerala Hubs */}
+              <div className="bg-white/[0.02] border border-white/5 rounded-xl p-3">
+                <p className="text-zinc-200 font-semibold mb-1 flex items-center gap-1.5">
+                  <span>🌴</span> Kerala Core
+                </p>
+                <p className="text-[11px] text-zinc-400 leading-relaxed">
+                  Kozhikode (Calicut), Malappuram, Thrissur, Kochi, Ernakulam, Kannur, Thiruvananthapuram, Palakkad.
+                </p>
+              </div>
+
+              {/* India Metros */}
+              <div className="bg-white/[0.02] border border-white/5 rounded-xl p-3">
+                <p className="text-zinc-200 font-semibold mb-1 flex items-center gap-1.5">
+                  <span>🇮🇳</span> India Metros
+                </p>
+                <p className="text-[11px] text-zinc-400 leading-relaxed">
+                  Bengaluru (Bangalore), Delhi NCR, Indore, Nellore, Mumbai, Hyderabad, Chennai, Pune.
+                </p>
+              </div>
+
+              {/* UAE & Middle East */}
+              <div className="bg-white/[0.02] border border-white/5 rounded-xl p-3">
+                <p className="text-zinc-200 font-semibold mb-1 flex items-center gap-1.5">
+                  <span>🌍</span> UAE &amp; Saudi Arabia
+                </p>
+                <p className="text-[11px] text-zinc-400 leading-relaxed">
+                  Dubai, Abu Dhabi, Sharjah (UAE), Riyadh, Jeddah, Dammam (Saudi Arabia), GCC region.
+                </p>
+              </div>
+
+              {/* Europe & International */}
+              <div className="bg-white/[0.02] border border-white/5 rounded-xl p-3">
+                <p className="text-zinc-200 font-semibold mb-1 flex items-center gap-1.5">
+                  <span>🗼</span> Europe &amp; Global
+                </p>
+                <p className="text-[11px] text-zinc-400 leading-relaxed">
+                  Paris (France), London (UK), European Union, North America &amp; Worldwide Remote Delivery.
+                </p>
+              </div>
             </div>
           </div>
         </div>
