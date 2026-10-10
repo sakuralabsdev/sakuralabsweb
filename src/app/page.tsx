@@ -126,26 +126,70 @@ export default function Home() {
         onLinkChange={setActiveLink}
       />
 
-      {/* HERO CENTER HEADLINE & SUBTITLE */}
-      <section id="home" className="scroll-mt-24 sm:scroll-mt-28 relative z-30 flex flex-col items-center justify-center text-center px-4 pt-3 sm:pt-6 md:pt-8">
+      {/* HERO CENTER HEADLINE & SUBTITLE WITH SAKURA TREE */}
+      <section
+        id="home"
+        className="scroll-mt-24 sm:scroll-mt-28 relative z-10 w-full max-w-6xl mx-auto px-4 pt-2 sm:pt-4 md:pt-6 select-none"
+      >
         {/* Top Feature Pill Badge */}
-        <div className="inline-flex items-center gap-2 bg-[#14151a]/90 border border-white/10 rounded-full px-3 py-0.5 sm:px-3.5 sm:py-1 shadow-md backdrop-blur-md mb-2.5 sm:mb-4 cursor-pointer hover:border-white/20 transition-all">
-          <span className="text-sm sm:text-base leading-none">✨</span>
-          <span className="text-[#ff5500] font-bold text-[11px] sm:text-xs tracking-tight">Web Development, Design &amp; AI Search</span>
-          <span className="text-zinc-400 text-[11px] sm:text-xs font-normal">• sakuralabs.in</span>
+        <div className="flex justify-center mb-3 sm:mb-5">
+          <div className="inline-flex items-center gap-2 bg-[#14151a]/90 border border-white/10 rounded-full px-3 py-0.5 sm:px-3.5 sm:py-1 shadow-md backdrop-blur-md cursor-pointer hover:border-white/20 transition-all">
+            <span className="text-sm sm:text-base leading-none">🌸</span>
+            <span className="text-[#ff5500] font-bold text-[11px] sm:text-xs tracking-tight">
+              Web Development, Design &amp; AI Search
+            </span>
+            <span className="text-zinc-400 text-[11px] sm:text-xs font-normal">
+              • sakuralabs.in
+            </span>
+          </div>
         </div>
 
-        {/* Big Bold Headline */}
-        <h1 className="text-3xl sm:text-5xl md:text-[66px] lg:text-[72px] font-extrabold tracking-tight text-white leading-[1.1] select-none">
-          Web Engineering, Design &amp;
-          <br />
-          Accelerated Growth
-        </h1>
+        {/* 3-Column Layout: Left Text | Center Sakura Tree | Right Text */}
+        <div className="grid grid-cols-1 md:grid-cols-12 items-center gap-4 sm:gap-6 md:gap-4 lg:gap-8">
+          {/* LEFT SIDE: Main Title (smaller, high-impact) */}
+          <div className="md:col-span-4 flex flex-col items-center md:items-start text-center md:text-left">
+            <h1 className="text-2xl sm:text-3xl md:text-[28px] lg:text-[34px] font-extrabold tracking-tight text-white leading-[1.18]">
+              Web Engineering &amp;
+              <br />
+              <span className="bg-gradient-to-r from-white via-zinc-200 to-rose-300 bg-clip-text text-transparent">
+                Bespoke Design
+              </span>
+            </h1>
+            <p className="text-zinc-400 text-xs sm:text-[13px] mt-2 sm:mt-2.5 leading-relaxed max-w-xs">
+              Crafting ultra-fast Next.js web applications, responsive websites &amp; modern UI/UX design systems.
+            </p>
+          </div>
 
-        {/* Subtitle with exact line breaks */}
-        <p className="text-[#8e8e93] text-xs sm:text-[14px] md:text-[15px] max-w-2xl mx-auto mt-2 sm:mt-4 leading-relaxed font-normal select-none">
-          We engineer bespoke high-performance websites, conversion-obsessed web design, and AI search dominance (GEO &amp; AEO) for ambitious brands across Kerala, India, the Gulf, and worldwide.
-        </p>
+          {/* CENTER: Sakura Tree PNG (z-index under the cards) */}
+          <div className="md:col-span-4 flex flex-col items-center justify-center relative z-0 py-1 sm:py-2 pointer-events-none">
+            {/* Subtle Pink Ambient Glow */}
+            <div className="absolute inset-0 m-auto w-36 sm:w-44 md:w-52 h-36 sm:h-44 md:h-52 bg-pink-500/20 rounded-full blur-3xl pointer-events-none" />
+
+            {/* Tree Image */}
+            <div className="relative w-36 h-36 sm:w-48 sm:h-48 md:w-52 md:h-52 lg:w-60 lg:h-60 transition-transform duration-500 hover:scale-105">
+              <Image
+                src="/pngs/sakura.png"
+                alt="Sakura Labs Blossom Tree"
+                fill
+                sizes="(max-width: 640px) 150px, (max-width: 768px) 200px, 240px"
+                className="object-contain filter drop-shadow-[0_12px_28px_rgba(244,114,182,0.35)]"
+                priority
+              />
+            </div>
+          </div>
+
+          {/* RIGHT SIDE: Accelerated Growth, GEO/AEO & Subtext */}
+          <div className="md:col-span-4 flex flex-col items-center md:items-end text-center md:text-right">
+            <h2 className="text-xl sm:text-2xl md:text-[24px] lg:text-[28px] font-bold text-white tracking-tight leading-tight">
+              Accelerated Growth &amp;
+              <br />
+              <span className="text-[#ff5500]">GEO &amp; AEO Dominance</span>
+            </h2>
+            <p className="text-[#8e8e93] text-xs sm:text-[13px] mt-2 sm:mt-2.5 leading-relaxed max-w-xs">
+              Engineered for AI search citations &amp; high conversions across Kerala, India, UAE, Saudi Arabia, and Paris.
+            </p>
+          </div>
+        </div>
       </section>
 
       {/* THE 5 FANNED HERO CARDS (TIGHT FAN DECK) */}
