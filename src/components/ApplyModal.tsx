@@ -8,19 +8,6 @@ interface ApplyModalProps {
   jobTitle?: string;
 }
 
-const COUNTRY_CODES = [
-  { code: "+91", label: "India (+91)", flag: "🇮🇳" },
-  { code: "+1", label: "US / CA (+1)", flag: "🇺🇸" },
-  { code: "+44", label: "UK (+44)", flag: "🇬🇧" },
-  { code: "+971", label: "UAE (+971)", flag: "🇦🇪" },
-  { code: "+65", label: "Singapore (+65)", flag: "🇸🇬" },
-  { code: "+61", label: "Australia (+61)", flag: "🇦🇺" },
-  { code: "+49", label: "Germany (+49)", flag: "🇩🇪" },
-  { code: "+33", label: "France (+33)", flag: "🇫🇷" },
-  { code: "+81", label: "Japan (+81)", flag: "🇯🇵" },
-  { code: "+966", label: "Saudi (+966)", flag: "🇸🇦" },
-];
-
 export default function ApplyModal({
   isOpen,
   onClose,
@@ -28,7 +15,6 @@ export default function ApplyModal({
 }: ApplyModalProps) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [countryCode, setCountryCode] = useState("+91");
   const [phone, setPhone] = useState("");
   const [about, setAbout] = useState("");
   const [resumeFile, setResumeFile] = useState<File | null>(null);
@@ -65,10 +51,15 @@ export default function ApplyModal({
     setLoading(true);
 
     try {
+      const trimmedPhone = phone.trim();
+      const formattedPhone = trimmedPhone.startsWith("+")
+        ? trimmedPhone
+        : `+91 ${trimmedPhone.replace(/^\+?91\s*/, "")}`;
+
       const formData = new FormData();
       formData.append("name", name || "Applicant");
       formData.append("email", email || "Not provided");
-      formData.append("phone", `${countryCode} ${phone}`.trim());
+      formData.append("phone", formattedPhone);
       formData.append("role", jobTitle);
       formData.append("about", about);
       formData.append("resume", resumeFile);
@@ -201,31 +192,22 @@ export default function ApplyModal({
                 </div>
               </div>
 
-              {/* Mobile Number with Country Code Dropdown */}
+              {/* Mobile Number with simple +91 format */}
               <div>
                 <label className="block text-xs font-mono uppercase text-zinc-400 mb-1.5">
                   Mobile Number (WhatsApp Preferred) *
                 </label>
-                <div className="flex gap-2">
-                  <select
-                    value={countryCode}
-                    onChange={(e) => setCountryCode(e.target.value)}
-                    className="bg-[#14151e] border border-white/10 focus:border-pink-500/50 focus:outline-none rounded-xl px-3 py-2.5 text-xs sm:text-sm text-zinc-200 transition-all cursor-pointer shrink-0"
-                  >
-                    {COUNTRY_CODES.map((item) => (
-                      <option key={item.code} value={item.code} className="bg-[#14151e] text-white">
-                        {item.flag} {item.code}
-                      </option>
-                    ))}
-                  </select>
-
+                <div className="flex items-center bg-[#14151e] border border-white/10 focus-within:border-pink-500/50 rounded-xl overflow-hidden transition-all">
+                  <span className="px-3.5 py-2.5 text-xs sm:text-sm text-zinc-400 bg-white/5 border-r border-white/10 font-mono select-none">
+                    +91
+                  </span>
                   <input
-                    type="tel"
+                    type="text"
                     required
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    placeholder="8714244119"
-                    className="flex-1 bg-[#14151e] border border-white/10 focus:border-pink-500/50 focus:outline-none rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white placeholder-zinc-500 transition-all"
+                    placeholder="87142 44119"
+                    className="flex-1 bg-transparent px-3.5 py-2.5 text-xs sm:text-sm text-white placeholder-zinc-500 focus:outline-none"
                   />
                 </div>
               </div>
