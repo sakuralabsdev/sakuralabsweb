@@ -17,9 +17,8 @@ export default function Home() {
   const cards = [
     {
       id: 1,
-      title: "Fortnite",
-      subtitle: "Battle Royale",
-      rating: "8,9",
+      title: "Marketing",
+      subtitle: "SEO & Growth",
       bgGradient: "from-[#8b5cf6] via-[#7c3aed] to-[#5b21b6]",
       glowColor: "rgba(139, 92, 246, 0.4)",
       image: "/hero/fortnite.png",
@@ -29,13 +28,12 @@ export default function Home() {
       zIndex: 10,
       width: "w-[76px] sm:w-[170px] md:w-[275px] lg:w-[290px]",
       height: "h-[118px] sm:h-[260px] md:h-[415px] lg:h-[435px]",
-      badgeType: "rating",
+      badgeType: "none",
     },
     {
       id: 2,
-      title: "Mario",
-      subtitle: "Kingdom Battle",
-      rating: "4,8",
+      title: "App Dev",
+      subtitle: "iOS & Android",
       bgGradient: "from-[#ff5b65] via-[#ef3346] to-[#c71e32]",
       glowColor: "rgba(255, 91, 101, 0.45)",
       image: "/hero/mario_3d.png",
@@ -45,13 +43,12 @@ export default function Home() {
       zIndex: 20,
       width: "w-[84px] sm:w-[185px] md:w-[285px] lg:w-[305px]",
       height: "h-[130px] sm:h-[285px] md:h-[445px] lg:h-[465px]",
-      badgeType: "mario-circle",
+      badgeType: "none",
     },
     {
       id: 3,
-      title: "Kirby",
-      subtitle: "Star Allies",
-      rating: "4,7",
+      title: "Web Development",
+      subtitle: "Fast & Scalable",
       bgGradient: "from-[#38bdf8] via-[#0ea5e9] to-[#0284c7]",
       glowColor: "rgba(14, 165, 233, 0.5)",
       image: "/hero/kirby.png",
@@ -61,14 +58,13 @@ export default function Home() {
       zIndex: 30,
       width: "w-[92px] sm:w-[205px] md:w-[310px] lg:w-[335px]",
       height: "h-[142px] sm:h-[310px] md:h-[485px] lg:h-[515px]",
-      badgeType: "rating",
+      badgeType: "none",
       isCenter: true,
     },
     {
       id: 4,
-      title: "Pokemon",
-      subtitle: "Legends: Arceus",
-      rating: "4,2",
+      title: "Performance Ads",
+      subtitle: "Meta & Google",
       bgGradient: "from-[#34d399] via-[#10b981] to-[#059669]",
       glowColor: "rgba(16, 185, 129, 0.45)",
       image: "/hero/bulbasaur.png",
@@ -78,13 +74,12 @@ export default function Home() {
       zIndex: 20,
       width: "w-[84px] sm:w-[185px] md:w-[285px] lg:w-[305px]",
       height: "h-[130px] sm:h-[285px] md:h-[445px] lg:h-[465px]",
-      badgeType: "rating",
+      badgeType: "none",
     },
     {
       id: 5,
-      title: "Splatoon 3",
-      subtitle: "Multiplayer",
-      rating: "3,9",
+      title: "Brand Design",
+      subtitle: "UI/UX & Identity",
       bgGradient: "from-[#3b82f6] via-[#2563eb] to-[#1d4ed8]",
       glowColor: "rgba(37, 99, 235, 0.4)",
       image: "/hero/splatoon.png",
@@ -94,7 +89,7 @@ export default function Home() {
       zIndex: 10,
       width: "w-[76px] sm:w-[170px] md:w-[275px] lg:w-[290px]",
       height: "h-[118px] sm:h-[260px] md:h-[415px] lg:h-[435px]",
-      badgeType: "rating",
+      badgeType: "none",
     },
   ];
 
@@ -134,23 +129,22 @@ export default function Home() {
       <section id="home" className="scroll-mt-24 sm:scroll-mt-28 relative z-30 flex flex-col items-center justify-center text-center px-4 pt-3 sm:pt-6 md:pt-8">
         {/* Top Feature Pill Badge */}
         <div className="inline-flex items-center gap-2 bg-[#14151a]/90 border border-white/10 rounded-full px-3 py-0.5 sm:px-3.5 sm:py-1 shadow-md backdrop-blur-md mb-2.5 sm:mb-4 cursor-pointer hover:border-white/20 transition-all">
-          {/* Gold Gift / Crown Icon */}
-          <span className="text-sm sm:text-base leading-none">🎁</span>
-          <span className="text-[#f5c518] font-bold text-[11px] sm:text-xs tracking-tight">5 Months</span>
-          <span className="text-zinc-400 text-[11px] sm:text-xs font-normal">- Free Access</span>
+          <span className="text-sm sm:text-base leading-none">✨</span>
+          <span className="text-[#ff5500] font-bold text-[11px] sm:text-xs tracking-tight">Full-Service Digital Agency</span>
+          <span className="text-zinc-400 text-[11px] sm:text-xs font-normal">• sakuralabs.in</span>
         </div>
 
         {/* Big Bold Headline */}
         <h1 className="text-3xl sm:text-5xl md:text-[66px] lg:text-[72px] font-extrabold tracking-tight text-white leading-[1.1] select-none">
-          Fun Games
+          Digital Services &amp;
           <br />
-          Nintendo Switch
+          Accelerated Growth
         </h1>
 
         {/* Subtitle with exact line breaks */}
         <p className="text-[#8e8e93] text-xs sm:text-[14px] md:text-[15px] max-w-xl mx-auto mt-2 sm:mt-4 leading-relaxed font-normal select-none">
-          Be sure to try our selection of games, we have carefully chosen them. There are
-          <br className="hidden sm:inline" /> games for all tastes.
+          We engineer high-performance web applications, mobile apps, and data-driven marketing campaigns
+          <br className="hidden sm:inline" /> that scale brands and generate measurable results.
         </p>
       </section>
 
@@ -186,25 +180,16 @@ export default function Home() {
                 {/* Subtle Card Inner Glass Sheen */}
                 <div className="absolute inset-0 rounded-[14px] sm:rounded-[24px] md:rounded-[38px] bg-gradient-to-b from-white/20 via-transparent to-black/20 pointer-events-none" />
 
-                {/* Top Card Info: Game Title, Subtitle & Badge */}
+                {/* Top Card Info: Service Title & Subtitle */}
                 <div className="relative z-20 flex items-start justify-between w-full">
-                  <div>
-                    <h3 className="text-white font-extrabold text-[10px] sm:text-base md:text-2xl lg:text-3xl tracking-tight drop-shadow-sm whitespace-nowrap leading-tight">
+                  <div className="max-w-full">
+                    <h3 className="text-white font-extrabold text-[8px] sm:text-base md:text-2xl lg:text-3xl tracking-tight drop-shadow-sm whitespace-nowrap leading-tight">
                       {card.title}
                     </h3>
-                    <p className="text-white/85 text-[7px] sm:text-[11px] md:text-sm font-medium drop-shadow-sm whitespace-nowrap mt-0.5 leading-none">
+                    <p className="text-white/85 text-[6px] sm:text-[11px] md:text-sm font-medium drop-shadow-sm whitespace-nowrap mt-0.5 leading-none">
                       {card.subtitle}
                     </p>
                   </div>
-
-                  {/* Mario emblem badge (ratings/reviews removed) */}
-                  {card.badgeType === "mario-circle" && (
-                    <div className="w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full bg-white flex items-center justify-center shadow-md shrink-0">
-                      <div className="w-2.5 h-2.5 sm:w-4 sm:h-4 md:w-5 md:h-5 rounded-full bg-[#ef3346] flex items-center justify-center">
-                        <span className="text-white font-black text-[6px] sm:text-[9px] md:text-[10px] leading-none">M</span>
-                      </div>
-                    </div>
-                  )}
                 </div>
 
                 {/* Pop-Out Character Asset */}

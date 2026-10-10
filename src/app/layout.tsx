@@ -16,9 +16,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sakura Labs | sakuralabs.in",
-  description: "Sakura Labs - Official Gaming Showcase (www.sakuralabs.in)",
-  keywords: ["Sakura Labs", "sakuralabs.in", "Nintendo Switch", "Gaming", "Games"],
+  title: "Sakura Labs | Digital Agency - Web, App Development & Marketing",
+  description:
+    "Sakura Labs (sakuralabs.in) is a premier digital agency specializing in high-performance Web Development, Mobile Apps, Ads, and Digital Marketing.",
+  keywords: [
+    "Sakura Labs",
+    "sakuralabs.in",
+    "Web Development",
+    "App Development",
+    "Performance Ads",
+    "Digital Marketing",
+    "UI UX Design",
+  ],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

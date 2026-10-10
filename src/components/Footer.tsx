@@ -129,10 +129,11 @@ export default function Footer() {
                 Services
               </span>
               <ul className="mt-4 space-y-2.5 text-xs sm:text-sm text-zinc-400">
-                <li className="hover:text-zinc-200 transition-colors">Digital Design</li>
-                <li className="hover:text-zinc-200 transition-colors">Brand Identity</li>
                 <li className="hover:text-zinc-200 transition-colors">Web Development</li>
-                <li className="hover:text-zinc-200 transition-colors">Strategy &amp; Research</li>
+                <li className="hover:text-zinc-200 transition-colors">App Development</li>
+                <li className="hover:text-zinc-200 transition-colors">Performance Ads</li>
+                <li className="hover:text-zinc-200 transition-colors">Digital Marketing &amp; SEO</li>
+                <li className="hover:text-zinc-200 transition-colors">Brand &amp; UI/UX Design</li>
               </ul>
             </div>
 

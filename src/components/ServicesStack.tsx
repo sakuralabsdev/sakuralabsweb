@@ -16,37 +16,46 @@ const services: ServiceItem[] = [
   {
     id: "01",
     number: "01",
-    title: "Digital Design",
-    tags: ["More than just fancy visuals", "We make life better"],
+    title: "Web Development",
+    tags: ["High-Performance Next.js", "Full-Stack Web Apps"],
     description:
-      "Crafting intuitive digital experiences that merge futuristic aesthetics with seamless usability. Every interaction is calculated to delight.",
+      "Engineering lightning-fast, scalable web applications and interactive websites built with modern tech stacks. Built for peak speed, SEO, and flawless conversions.",
     accentColor: "#ff5500",
   },
   {
     id: "02",
     number: "02",
-    title: "Branding",
-    tags: ["Originality and relevance", "Storytelling"],
+    title: "App Development",
+    tags: ["iOS & Android Native", "Seamless Cross-Platform"],
     description:
-      "Defining indelible brand identities that resonate across mediums. We shape cohesive visual systems that leave an unforgettable impression.",
+      "Building sleek, intuitive mobile applications engineered for peak performance and user retention. From rapid MVP launches to scaling active users.",
     accentColor: "#ff5500",
   },
   {
     id: "03",
     number: "03",
-    title: "Communication",
-    tags: ["Bringing values together", "Said right, done right"],
+    title: "Performance Ads",
+    tags: ["Meta & Google Ads", "High ROI & Media Buying"],
     description:
-      "Articulating your message with razor-sharp clarity and emotional weight. Engaging campaigns that turn passive audiences into loyal advocates.",
+      "Laser-targeted advertising campaigns designed to acquire high-value customers with optimal cost per acquisition and maximized returns on ad spend.",
     accentColor: "#ff5500",
   },
   {
     id: "04",
     number: "04",
-    title: "Strategy Research",
-    tags: ["Beyond hollow theory", "Delivering real value"],
+    title: "Digital Marketing",
+    tags: ["SEO & Search Dominance", "Organic Growth Systems"],
     description:
-      "Grounding visionary ideas in empirical data and market psychology. We architect strategic roadmaps designed for sustainable digital growth.",
+      "Comprehensive organic growth strategies and data-driven marketing systems that build lasting audience loyalty and sustainable revenue pipelines.",
+    accentColor: "#ff5500",
+  },
+  {
+    id: "05",
+    number: "05",
+    title: "Brand & UI/UX Design",
+    tags: ["Visual Identity Systems", "Conversion-Driven UX"],
+    description:
+      "Crafting unforgettable brand identities and intuitive UI/UX design systems that elevate your perceived value and make your product an industry benchmark.",
     accentColor: "#ff5500",
   },
 ];
@@ -67,10 +76,10 @@ export default function ServicesStack() {
 
           {/* Statement Headline */}
           <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-[62px] font-normal tracking-tight text-[#f2f2f4] leading-[1.14] max-w-4xl">
-            We&apos;re the studio that transforms{" "}
-            <span className="text-zinc-400 italic font-light">(creative)</span>{" "}
-            visions, honoring{" "}
-            <span className="text-zinc-400 italic font-light">(originality)</span>{" "}
+            We&apos;re the digital lab that builds{" "}
+            <span className="text-zinc-400 italic font-light">(exceptional)</span>{" "}
+            products, driving{" "}
+            <span className="text-zinc-400 italic font-light">(growth)</span>{" "}
             in every detail.
           </h2>
         </div>

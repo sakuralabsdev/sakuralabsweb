@@ -13,31 +13,31 @@ const faqs: FAQItem[] = [
     category: "Capabilities",
     question: "What services does Sakura Labs specialize in?",
     answer:
-      "We specialize in end-to-end digital experiences—ranging from high-impact UI/UX design, interactive web and mobile applications, bespoke brand identity systems, to strategic creative direction and gaming-inspired digital interfaces that captivate modern audiences.",
+      "We are a full-service digital agency specializing in custom Web Development, iOS & Android Mobile App Development, Performance Ads (Meta & Google Ads), Data-Driven Digital Marketing & SEO, and high-converting UI/UX Brand Design.",
   },
   {
     category: "Collaboration",
     question: "How does the project collaboration process work?",
     answer:
-      "We operate in close, transparent sprints. From initial discovery and design architecture to interactive prototypes and production-grade development, you have direct access to our team with regular async updates, Figma design files, and live milestone demos.",
+      "We operate in close, agile sprints. From discovery and technical architecture to design and production-grade deployment, you have direct communication with our engineers and marketing strategists with regular milestone demos.",
   },
   {
     category: "Timeline",
     question: "What are your typical project timelines?",
     answer:
-      "Timelines depend on scope. Focused design systems or brand sprints typically take 2–3 weeks, while comprehensive interactive web apps, custom platforms, and full experience builds range from 4 to 8 weeks.",
+      "Timelines depend on scope. Focused web builds or ad campaign setups typically launch within 1–2 weeks, while comprehensive web applications and full-scale mobile app platforms range from 3 to 6 weeks.",
   },
   {
     category: "Partnership",
-    question: "Do you work with startups, established brands, or global clients?",
+    question: "Do you work with startups, businesses, or global clients?",
     answer:
-      "Both! We partner with ambitious founders launching groundbreaking products as well as established global brands seeking to elevate their digital aesthetic and capture market attention.",
+      "Yes! We partner with early-stage startups seeking rapid product launches as well as growing companies looking to scale their digital presence, user acquisition, and online revenue.",
   },
   {
     category: "Getting Started",
     question: "How do we get started on a project together?",
     answer:
-      "Simply send us a message via the Contact form below or email us directly at hello@sakuralabs.in. We'll review your brief and schedule an initial discovery call within 24 hours.",
+      "Simply send us a message via our Contact form, WhatsApp (+91 87142 44119), or email us at sakuralabs.dev@gmail.com. We'll review your goals and get back to you within hours.",
   },
 ];
 
