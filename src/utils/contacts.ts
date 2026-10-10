@@ -22,12 +22,16 @@ export interface ContactInfo {
   };
 }
 
+export const createWhatsAppLink = (
+  message = "Hi Sakura Labs! 👋 I visited your website (sakuralabs.in) and would like to discuss a project."
+) => `https://wa.me/918714244119?text=${encodeURIComponent(message)}`;
+
 export const contactDetails: ContactInfo = {
   phone: "+918714244119",
   phoneFormatted: "+91 87142 44119",
   whatsapp: {
     number: "+918714244119",
-    link: "https://wa.me/918714244119",
+    link: createWhatsAppLink(),
   },
   email: "sakuralabs.dev@gmail.com",
   domainEmail: "hello@sakuralabs.in",

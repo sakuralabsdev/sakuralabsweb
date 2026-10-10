@@ -1,10 +1,21 @@
 "use client";
 
 import React, { useState } from "react";
-import { contactDetails } from "@/utils/contacts";
+import { usePathname } from "next/navigation";
+import { contactDetails, createWhatsAppLink } from "@/utils/contacts";
 
 export default function FloatingActions() {
   const [chatOpen, setChatOpen] = useState(false);
+  const pathname = usePathname();
+
+  const getWhatsAppMessage = () => {
+    if (pathname?.startsWith("/careers")) {
+      return "Hi Sakura Labs! 👋 I saw the opening on your careers page and would like to connect about the role.";
+    }
+    return "Hi Sakura Labs! 👋 I visited your website (sakuralabs.in) and would like to discuss a project.";
+  };
+
+  const whatsappHref = createWhatsAppLink(getWhatsAppMessage());
 
   const scrollToContact = () => {
     setChatOpen(false);
@@ -57,7 +68,7 @@ export default function FloatingActions() {
               </button>
 
               <a
-                href={contactDetails.whatsapp.link}
+                href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setChatOpen(false)}
@@ -133,7 +144,7 @@ export default function FloatingActions() {
         {/* WhatsApp Floating Icon (Bottom Right) */}
         <div className="relative group">
           <a
-            href={contactDetails.whatsapp.link}
+            href={whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Chat on WhatsApp"
