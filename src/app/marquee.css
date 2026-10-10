@@ -1,0 +1,43 @@
+/* Continuous Infinite Marquee Animations */
+@keyframes marqueeScrollLeft {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes marqueeScrollRight {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.marquee-flow-left,
+.flow-track-left {
+  display: flex !important;
+  width: max-content !important;
+  animation: marqueeScrollLeft 26s linear infinite !important;
+  will-change: transform;
+}
+
+.marquee-flow-right,
+.flow-track-right {
+  display: flex !important;
+  width: max-content !important;
+  animation: marqueeScrollRight 26s linear infinite !important;
+  will-change: transform;
+}
+
+/* Maintain constant smooth flow */
+.marquee-flow-left,
+.marquee-flow-right,
+.flow-track-left,
+.flow-track-right {
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
