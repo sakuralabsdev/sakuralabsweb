@@ -141,10 +141,10 @@ export default function FlowingGallery() {
         <div className="relative overflow-hidden w-full flex">
           <div className="flow-track-right flex gap-3 sm:gap-4 md:gap-5 items-center">
             {row1.map((src, idx) => (
-              <GalleryCard key={`r1-a-${idx}`} src={src} alt={`Community highlight 1-${idx}`} />
+              <GalleryCard key={`r1-a-${idx}`} src={src} alt={`Sakura Labs Digital Design Project ${idx + 1}`} />
             ))}
             {row1.map((src, idx) => (
-              <GalleryCard key={`r1-b-${idx}`} src={src} alt={`Community highlight 1-${idx}-dup`} />
+              <GalleryCard key={`r1-b-${idx}`} src={src} alt={`Sakura Labs Creative Showcase Item ${idx + 1}`} />
             ))}
           </div>
         </div>
@@ -153,10 +153,10 @@ export default function FlowingGallery() {
         <div className="relative overflow-hidden w-full flex">
           <div className="flow-track-left flex gap-3 sm:gap-4 md:gap-5 items-center">
             {row2.map((src, idx) => (
-              <GalleryCard key={`r2-a-${idx}`} src={src} alt={`Community highlight 2-${idx}`} />
+              <GalleryCard key={`r2-a-${idx}`} src={src} alt={`Sakura Labs Brand Artwork ${idx + 8}`} />
             ))}
             {row2.map((src, idx) => (
-              <GalleryCard key={`r2-b-${idx}`} src={src} alt={`Community highlight 2-${idx}-dup`} />
+              <GalleryCard key={`r2-b-${idx}`} src={src} alt={`Sakura Labs Digital Creative Exhibit ${idx + 8}`} />
             ))}
           </div>
         </div>
@@ -165,10 +165,10 @@ export default function FlowingGallery() {
         <div className="relative overflow-hidden w-full flex">
           <div className="flow-track-right flex gap-3 sm:gap-4 md:gap-5 items-center">
             {row3.map((src, idx) => (
-              <GalleryCard key={`r3-a-${idx}`} src={src} alt={`Community highlight 3-${idx}`} />
+              <GalleryCard key={`r3-a-${idx}`} src={src} alt={`Sakura Labs Interactive Concept ${idx + 15}`} />
             ))}
             {row3.map((src, idx) => (
-              <GalleryCard key={`r3-b-${idx}`} src={src} alt={`Community highlight 3-${idx}-dup`} />
+              <GalleryCard key={`r3-b-${idx}`} src={src} alt={`Sakura Labs Motion & Design Concept ${idx + 15}`} />
             ))}
           </div>
         </div>

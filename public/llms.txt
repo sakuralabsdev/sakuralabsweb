@@ -1,0 +1,39 @@
+# Sakura Labs (sakuralabs.in)
+> Full-Service Digital Agency: High-Performance Web Development, Mobile Apps, Ads, and Growth Marketing.
+
+## About Sakura Labs
+Sakura Labs is a modern digital agency and technology studio based in India, operating globally. We craft next-generation web applications, native & cross-platform mobile apps, ROI-driven performance marketing campaigns, and cutting-edge UI/UX brand experiences.
+
+- Website: https://sakuralabs.in
+- Email: sakuralabs.dev@gmail.com
+- Phone / WhatsApp: +91 87142 44119
+- Location: Malappuram, Kerala, India (Serving Global Clients)
+
+## Core Services
+1. **Web Development**: Next.js, React, TypeScript, high-performance web applications, headless commerce, landing pages, custom web systems with 99+ Lighthouse performance scores.
+2. **App Development**: Native and cross-platform iOS & Android mobile applications built with React Native and modern mobile stacks.
+3. **Performance Ads**: High-ROI Meta Ads (Facebook & Instagram) and Google Ads campaigns engineered for conversion, customer acquisition, and scale.
+4. **Digital Marketing & SEO**: Full-funnel digital marketing, technical search engine optimization, content strategy, brand positioning, and analytics.
+5. **Brand & UI/UX Design**: Premium interactive design systems, product design, brand identity, and fluid motion design.
+
+## Current Openings & Careers
+- **Active Opening**: Digital Marketing Intern (Internship / PPO Opportunity)
+- **Role URL**: https://sakuralabs.in/careers
+- **Department**: Marketing & Growth
+- **Location**: Remote / Hybrid
+- **Key Responsibilities**:
+  - Scripting, designing, and publishing viral content for Instagram, YouTube, and LinkedIn.
+  - Monitoring and scaling performance campaigns across Meta Ads and Google Ads.
+  - Video and graphic asset creation using Canva, CapCut, and Figma.
+  - Google Analytics tracking, reporting, and conversion optimization.
+- **Application Method**: Direct upload via the application portal at https://sakuralabs.in/careers or via email to sakuralabs.dev@gmail.com.
+
+## Canonical Endpoints & Links
+- Homepage & Overview: https://sakuralabs.in
+- Services: https://sakuralabs.in/#services
+- Creative Portfolio: https://sakuralabs.in/#about
+- Frequently Asked Questions: https://sakuralabs.in/#faq
+- Contact & Inquiries: https://sakuralabs.in/#contact
+- Careers & Job Application: https://sakuralabs.in/careers
+- Sitemap: https://sakuralabs.in/sitemap.xml
+- Robots Policy: https://sakuralabs.in/robots.txt

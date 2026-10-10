@@ -183,9 +183,9 @@ export default function Home() {
                 {/* Top Card Info: Service Title & Subtitle */}
                 <div className="relative z-20 flex items-start justify-between w-full">
                   <div className="max-w-full">
-                    <h3 className="text-white font-extrabold text-[8px] sm:text-base md:text-2xl lg:text-3xl tracking-tight drop-shadow-sm whitespace-nowrap leading-tight">
+                    <h2 className="text-white font-extrabold text-[8px] sm:text-base md:text-2xl lg:text-3xl tracking-tight drop-shadow-sm whitespace-nowrap leading-tight">
                       {card.title}
-                    </h3>
+                    </h2>
                     <p className="text-white/85 text-[6px] sm:text-[11px] md:text-sm font-medium drop-shadow-sm whitespace-nowrap mt-0.5 leading-none">
                       {card.subtitle}
                     </p>
@@ -196,10 +196,11 @@ export default function Home() {
                 <div className={`absolute ${card.imageClass} pointer-events-none select-none z-10 transition-transform duration-300 ${isHovered ? "scale-105" : ""}`}>
                   <Image
                     src={card.image}
-                    alt={card.title}
+                    alt={`${card.title} - Sakura Labs Digital Agency`}
                     fill
+                    sizes="(max-width: 640px) 95px, (max-width: 768px) 210px, 340px"
                     className="object-contain object-bottom filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.5)]"
-                    priority
+                    priority={card.id === 3}
                   />
                 </div>
               </div>

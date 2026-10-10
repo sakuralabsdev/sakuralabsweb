@@ -84,6 +84,7 @@ export default function CareersPage() {
                   src="/posts/post 4.png"
                   alt="Sakura Labs Hiring - Digital Marketing Intern"
                   fill
+                  sizes="(max-width: 1024px) 100vw, 480px"
                   className="object-cover transition-transform duration-500 group-hover:scale-102"
                   priority
                 />
@@ -263,7 +264,7 @@ export default function CareersPage() {
               {/* Apply CTA banner */}
               <div className="pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div>
-                  <h4 className="text-base font-bold text-white">Ready to join our team?</h4>
+                  <h3 className="text-base font-bold text-white">Ready to join our team?</h3>
                   <p className="text-xs text-zinc-400">Applications are reviewed on a rolling basis.</p>
                 </div>
                 <button

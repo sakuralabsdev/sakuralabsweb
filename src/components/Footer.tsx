@@ -3,13 +3,31 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter, usePathname } from "next/navigation";
 import { contactDetails } from "@/utils/contacts";
 
 export default function Footer() {
   const currentYear = "2026";
+  const router = useRouter();
+  const pathname = usePathname();
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleNav = (sectionId: string) => {
+    if (pathname !== "/") {
+      router.push(sectionId === "home" ? "/" : `/#${sectionId}`);
+      return;
+    }
+    if (sectionId === "home") {
+      scrollToTop();
+      return;
+    }
+    const target = document.getElementById(sectionId);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -27,7 +45,7 @@ export default function Footer() {
               href="/"
               onClick={(e) => {
                 e.preventDefault();
-                scrollToTop();
+                handleNav("home");
               }}
               className="flex items-center gap-2.5 sm:gap-3 cursor-pointer group"
               title="Sakura Labs"
@@ -142,7 +160,7 @@ export default function Footer() {
                     href="#home"
                     onClick={(e) => {
                       e.preventDefault();
-                      scrollToTop();
+                      handleNav("home");
                     }}
                     className="text-zinc-300 hover:text-white transition-colors"
                   >
@@ -154,7 +172,7 @@ export default function Footer() {
                     href="#services"
                     onClick={(e) => {
                       e.preventDefault();
-                      document.getElementById("services")?.scrollIntoView({ behavior: "smooth" });
+                      handleNav("services");
                     }}
                     className="text-zinc-300 hover:text-white transition-colors"
                   >
@@ -166,7 +184,7 @@ export default function Footer() {
                     href="#faq"
                     onClick={(e) => {
                       e.preventDefault();
-                      document.getElementById("faq")?.scrollIntoView({ behavior: "smooth" });
+                      handleNav("faq");
                     }}
                     className="text-zinc-300 hover:text-white transition-colors"
                   >
@@ -178,7 +196,7 @@ export default function Footer() {
                     href="#contact"
                     onClick={(e) => {
                       e.preventDefault();
-                      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                      handleNav("contact");
                     }}
                     className="text-zinc-300 hover:text-white transition-colors"
                   >

@@ -52,9 +52,9 @@ export default function ApplyModal({
 
     try {
       const trimmedPhone = phone.trim();
-      const formattedPhone = trimmedPhone.startsWith("+")
-        ? trimmedPhone
-        : `+91 ${trimmedPhone.replace(/^\+?91\s*/, "")}`;
+      const digitsOnly = trimmedPhone.replace(/\D/g, "");
+      const cleanDigits = digitsOnly.length > 10 && digitsOnly.startsWith("91") ? digitsOnly.slice(2) : digitsOnly;
+      const formattedPhone = cleanDigits.length > 0 ? `+91 ${cleanDigits}` : trimmedPhone;
 
       const formData = new FormData();
       formData.append("name", name || "Applicant");

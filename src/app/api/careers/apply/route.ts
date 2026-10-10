@@ -41,6 +41,9 @@ export async function POST(req: NextRequest) {
 
     if (googleSheetWebhookUrl) {
       try {
+        // Prefix phone with apostrophe to ensure Google Sheets treats it as plain text and not a formula (#ERROR!)
+        const sheetPhone = phone.startsWith("+") ? `'${phone}` : phone;
+
         const sheetResponse = await fetch(googleSheetWebhookUrl, {
           method: "POST",
           headers: {
@@ -50,7 +53,7 @@ export async function POST(req: NextRequest) {
             timestamp: new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" }),
             name,
             email,
-            phone,
+            phone: sheetPhone,
             role,
             resumeUrl,
             about,

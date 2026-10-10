@@ -91,9 +91,9 @@ export default function ContactSection() {
                 <span className="text-xs font-mono uppercase tracking-wider text-zinc-400">
                   Direct Inquiries
                 </span>
-                <h4 className="text-xl sm:text-2xl md:text-[26px] font-bold text-white mt-1 break-all">
+                <h3 className="text-xl sm:text-2xl md:text-[26px] font-bold text-white mt-1 break-all">
                   {contactDetails.email}
-                </h4>
+                </h3>
                 <p className="text-zinc-400 text-xs sm:text-sm mt-2">
                   Drop us a line for project proposals, partnerships, or inquiries.
                 </p>
