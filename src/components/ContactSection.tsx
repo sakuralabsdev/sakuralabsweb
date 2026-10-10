@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { contactDetails } from "@/utils/contacts";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -24,7 +25,7 @@ export default function ContactSection() {
   const budgetList = ["<$5k", "$5k - $15k", "$15k - $30k", "$30k+"];
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText("hello@sakuralabs.in");
+    navigator.clipboard.writeText(contactDetails.email);
     setCopied(true);
     setTimeout(() => setCopied(false), 2500);
   };
@@ -79,15 +80,15 @@ export default function ContactSection() {
                 <span className="text-xs font-mono uppercase tracking-wider text-zinc-400">
                   Direct Inquiries
                 </span>
-                <h4 className="text-2xl sm:text-3xl font-bold text-white mt-1">
-                  hello@sakuralabs.in
+                <h4 className="text-xl sm:text-2xl md:text-[26px] font-bold text-white mt-1 break-all">
+                  {contactDetails.email}
                 </h4>
                 <p className="text-zinc-400 text-xs sm:text-sm mt-2">
                   Drop us a line for project proposals, partnerships, or press inquiries.
                 </p>
               </div>
 
-              <div className="mt-6 flex items-center gap-3">
+              <div className="mt-6 flex flex-wrap items-center gap-3">
                 <button
                   type="button"
                   onClick={handleCopyEmail}
@@ -109,7 +110,7 @@ export default function ContactSection() {
                 </button>
 
                 <a
-                  href="mailto:hello@sakuralabs.in"
+                  href={`mailto:${contactDetails.email}`}
                   className="inline-flex items-center gap-2 bg-[#ff5500] hover:bg-[#ff661a] rounded-full px-4 py-2 text-xs font-bold text-white transition-all shadow-[0_0_15px_rgba(255,85,0,0.4)]"
                 >
                   Send Email ↗
@@ -117,24 +118,82 @@ export default function ContactSection() {
               </div>
             </div>
 
-            {/* Studio Badges Card */}
+            {/* Phone & WhatsApp Card */}
+            <div className="rounded-3xl bg-[#0e0f15]/90 border border-white/10 p-6 sm:p-7 backdrop-blur-xl flex flex-col gap-4">
+              <div className="flex items-center justify-between">
+                <div>
+                  <span className="text-xs font-mono uppercase tracking-wider text-zinc-400">
+                    Call &amp; WhatsApp
+                  </span>
+                  <div className="text-lg sm:text-xl font-bold text-white mt-0.5">
+                    {contactDetails.phoneFormatted}
+                  </div>
+                </div>
+                <div className="w-10 h-10 rounded-full bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                  </svg>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap gap-2.5 pt-2 border-t border-white/5">
+                <a
+                  href={contactDetails.whatsapp.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-[#25D366]/15 hover:bg-[#25D366]/25 border border-[#25D366]/30 text-[#25D366] rounded-full px-4 py-1.5 text-xs font-semibold transition-all"
+                >
+                  <span>Chat on WhatsApp</span>
+                  <span>↗</span>
+                </a>
+
+                <a
+                  href={`tel:${contactDetails.phone}`}
+                  className="inline-flex items-center gap-1.5 bg-white/5 hover:bg-white/10 border border-white/10 text-zinc-300 hover:text-white rounded-full px-4 py-1.5 text-xs font-medium transition-all"
+                >
+                  Direct Call
+                </a>
+              </div>
+            </div>
+
+            {/* Socials & Location Card */}
             <div className="rounded-3xl bg-[#0e0f15]/80 border border-white/10 p-6 sm:p-7 backdrop-blur-xl flex flex-col gap-4">
-              <div className="flex items-center gap-3">
-                <div className="w-3 h-3 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_10px_#34d399]" />
-                <span className="text-xs sm:text-sm font-semibold text-zinc-200">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-mono uppercase tracking-wider text-zinc-400">
+                  Social Channels
+                </span>
+                <span className="text-xs text-zinc-500 font-mono">
+                  {contactDetails.location}
+                </span>
+              </div>
+
+              <div className="flex flex-wrap gap-2.5">
+                <a
+                  href={contactDetails.socials.instagram.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 bg-white/5 hover:bg-pink-500/15 border border-white/10 hover:border-pink-500/30 text-zinc-300 hover:text-pink-300 rounded-full px-3.5 py-1.5 text-xs font-medium transition-all"
+                >
+                  <span>Instagram</span>
+                  <span className="text-zinc-500 text-[10px]">{contactDetails.socials.instagram.handle}</span>
+                  <span>↗</span>
+                </a>
+
+                <a
+                  href={contactDetails.socials.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 bg-white/5 hover:bg-blue-500/15 border border-white/10 hover:border-blue-500/30 text-zinc-300 hover:text-blue-300 rounded-full px-3.5 py-1.5 text-xs font-medium transition-all"
+                >
+                  <span>LinkedIn</span>
+                  <span>↗</span>
+                </a>
+              </div>
+
+              <div className="pt-2 border-t border-white/5 flex items-center gap-3">
+                <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_10px_#34d399]" />
+                <span className="text-xs font-semibold text-zinc-300">
                   Accepting select projects for Q2 / Q3 2026
-                </span>
-              </div>
-              <div className="flex items-center gap-3">
-                <span className="text-zinc-500 font-mono text-xs">⚡</span>
-                <span className="text-xs sm:text-sm text-zinc-400">
-                  Average response time: within 24 business hours
-                </span>
-              </div>
-              <div className="flex items-center gap-3">
-                <span className="text-zinc-500 font-mono text-xs">🌐</span>
-                <span className="text-xs sm:text-sm text-zinc-400">
-                  Based in India • Collaborating worldwide
                 </span>
               </div>
             </div>

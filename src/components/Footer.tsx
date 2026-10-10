@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { contactDetails } from "@/utils/contacts";
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -141,42 +142,40 @@ export default function Footer() {
               <ul className="mt-4 space-y-2.5 text-xs sm:text-sm">
                 <li>
                   <a
-                    href="https://twitter.com"
+                    href={contactDetails.socials.instagram.link}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-zinc-300 hover:text-pink-400 transition-colors flex items-center gap-1.5"
                   >
-                    Twitter / X ↗
+                    Instagram ({contactDetails.socials.instagram.handle}) ↗
                   </a>
                 </li>
                 <li>
                   <a
-                    href="https://github.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-zinc-300 hover:text-pink-400 transition-colors flex items-center gap-1.5"
-                  >
-                    GitHub ↗
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://discord.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-zinc-300 hover:text-pink-400 transition-colors flex items-center gap-1.5"
-                  >
-                    Discord ↗
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://linkedin.com"
+                    href={contactDetails.socials.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-zinc-300 hover:text-pink-400 transition-colors flex items-center gap-1.5"
                   >
                     LinkedIn ↗
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={contactDetails.whatsapp.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-zinc-300 hover:text-emerald-400 transition-colors flex items-center gap-1.5"
+                  >
+                    WhatsApp ↗
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={`mailto:${contactDetails.email}`}
+                    className="text-zinc-300 hover:text-pink-400 transition-colors flex items-center gap-1.5"
+                  >
+                    Email ↗
                   </a>
                 </li>
               </ul>
