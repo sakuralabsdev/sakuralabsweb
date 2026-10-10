@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import Navbar from "@/components/Navbar";
+import Navbar, { NavSection } from "@/components/Navbar";
 import FlowingGallery from "@/components/FlowingGallery";
 import ServicesStack from "@/components/ServicesStack";
 import FAQSection from "@/components/FAQSection";
@@ -11,7 +11,7 @@ import Footer from "@/components/Footer";
 import FloatingActions from "@/components/FloatingActions";
 
 export default function Home() {
-  const [activeLink, setActiveLink] = useState<"home" | "about" | "services" | "faq" | "contact">("home");
+  const [activeLink, setActiveLink] = useState<NavSection>("home");
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   const cards = [

@@ -185,6 +185,17 @@ export default function Footer() {
                     Contact
                   </a>
                 </li>
+                <li>
+                  <Link
+                    href="/careers"
+                    className="text-pink-400 hover:text-pink-300 transition-colors flex items-center gap-1.5 font-medium"
+                  >
+                    <span>Careers</span>
+                    <span className="text-[10px] bg-pink-500/15 border border-pink-500/30 text-pink-300 px-1.5 py-0.5 rounded-full">
+                      Hiring!
+                    </span>
+                  </Link>
+                </li>
               </ul>
             </div>
 

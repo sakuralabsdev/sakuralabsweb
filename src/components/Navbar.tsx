@@ -3,8 +3,9 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 
-export type NavSection = "home" | "about" | "services" | "faq" | "contact";
+export type NavSection = "home" | "about" | "services" | "faq" | "careers" | "contact";
 
 interface NavbarProps {
   activeLink?: NavSection;
@@ -15,11 +16,20 @@ export default function Navbar({
   activeLink: controlledActiveLink,
   onLinkChange,
 }: NavbarProps) {
+  const router = useRouter();
+  const pathname = usePathname();
+
   const [internalLink, setInternalLink] = useState<NavSection>("home");
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const activeLink = controlledActiveLink !== undefined ? controlledActiveLink : internalLink;
+  // Directly derive active link if on careers route
+  const activeLink =
+    pathname?.startsWith("/careers")
+      ? "careers"
+      : controlledActiveLink !== undefined
+      ? controlledActiveLink
+      : internalLink;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,8 +51,12 @@ export default function Navbar({
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Scroll Spy: dynamically highlight active nav item as user scrolls
+  // Scroll Spy: dynamically highlight active nav item as user scrolls (on homepage only)
   useEffect(() => {
+    if (typeof window !== "undefined" && window.location.pathname !== "/") {
+      return;
+    }
+
     const handleScrollSpy = () => {
       const scrollPos = window.scrollY + 180;
 
@@ -82,6 +96,19 @@ export default function Navbar({
     }
     setMobileMenuOpen(false);
 
+    if (link === "careers") {
+      if (pathname !== "/careers") {
+        router.push("/careers");
+      }
+      return;
+    }
+
+    // If navigating to home section from a different route like /careers
+    if (pathname !== "/") {
+      router.push(link === "home" ? "/" : `/#${link}`);
+      return;
+    }
+
     if (link === "home") {
       window.scrollTo({ top: 0, behavior: "smooth" });
       return;
@@ -100,11 +127,12 @@ export default function Navbar({
     }
   };
 
-  const navItems: Array<{ id: NavSection; label: string }> = [
+  const navItems: Array<{ id: NavSection; label: string; badge?: string }> = [
     { id: "home", label: "Home" },
     { id: "about", label: "About" },
     { id: "services", label: "Services" },
     { id: "faq", label: "FAQ" },
+    { id: "careers", label: "Careers", badge: "Hiring" },
   ];
 
   return (
@@ -181,7 +209,12 @@ export default function Navbar({
                   {isActive && (
                     <span className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_8px_white]" />
                   )}
-                  {item.label}
+                  <span>{item.label}</span>
+                  {item.badge && (
+                    <span className="text-[9px] font-bold uppercase tracking-wider bg-pink-500/20 text-pink-300 border border-pink-500/30 px-1.5 py-0.5 rounded-full ml-0.5">
+                      {item.badge}
+                    </span>
+                  )}
                 </button>
               );
             })}
@@ -275,7 +308,14 @@ export default function Navbar({
                       : "text-zinc-300 hover:text-white hover:bg-white/5"
                   }`}
                 >
-                  <span>{item.label}</span>
+                  <div className="flex items-center gap-2">
+                    <span>{item.label}</span>
+                    {item.badge && (
+                      <span className="text-[9px] font-bold uppercase tracking-wider bg-pink-500/20 text-pink-300 border border-pink-500/30 px-1.5 py-0.5 rounded-full">
+                        {item.badge}
+                      </span>
+                    )}
+                  </div>
                   {isActive && (
                     <span className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_8px_white]" />
                   )}
