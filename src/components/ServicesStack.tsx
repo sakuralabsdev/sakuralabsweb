@@ -53,7 +53,7 @@ const services: ServiceItem[] = [
 
 export default function ServicesStack() {
   return (
-    <section id="services" className="relative w-full bg-[#07070a] text-white pt-24 sm:pt-32 pb-36 px-5 sm:px-8 lg:px-14 select-none">
+    <section id="services" className="scroll-mt-24 sm:scroll-mt-28 relative w-full bg-[#07070a] text-white pt-24 sm:pt-32 pb-36 px-5 sm:px-8 lg:px-14 select-none">
       {/* Background Ambience */}
       <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none" />
 

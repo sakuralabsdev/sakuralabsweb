@@ -4,18 +4,22 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+export type NavSection = "home" | "about" | "services" | "faq" | "contact";
+
 interface NavbarProps {
-  activeLink?: "home" | "about" | "services" | "contact";
-  onLinkChange?: (link: "home" | "about" | "services" | "contact") => void;
+  activeLink?: NavSection;
+  onLinkChange?: (link: NavSection) => void;
 }
 
 export default function Navbar({
   activeLink: controlledActiveLink,
   onLinkChange,
 }: NavbarProps) {
-  const [internalLink, setInternalLink] = useState<"home" | "about" | "services" | "contact">("home");
+  const [internalLink, setInternalLink] = useState<NavSection>("home");
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const activeLink = controlledActiveLink !== undefined ? controlledActiveLink : internalLink;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,28 +41,70 @@ export default function Navbar({
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const activeLink = controlledActiveLink !== undefined ? controlledActiveLink : internalLink;
+  // Scroll Spy: dynamically highlight active nav item as user scrolls
+  useEffect(() => {
+    const handleScrollSpy = () => {
+      const scrollPos = window.scrollY + 180;
 
-  const handleLinkClick = (link: "home" | "about" | "services" | "contact") => {
+      if (window.scrollY < 250) {
+        if (activeLink !== "home") {
+          if (onLinkChange) onLinkChange("home");
+          else setInternalLink("home");
+        }
+        return;
+      }
+
+      const sections: NavSection[] = ["contact", "faq", "services", "about"];
+      for (const sec of sections) {
+        const el = document.getElementById(sec);
+        if (el) {
+          const top = el.offsetTop;
+          if (scrollPos >= top) {
+            if (activeLink !== sec) {
+              if (onLinkChange) onLinkChange(sec);
+              else setInternalLink(sec);
+            }
+            return;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScrollSpy, { passive: true });
+    return () => window.removeEventListener("scroll", handleScrollSpy);
+  }, [activeLink, onLinkChange]);
+
+  const handleLinkClick = (link: NavSection) => {
     if (onLinkChange) {
       onLinkChange(link);
     } else {
       setInternalLink(link);
     }
+    setMobileMenuOpen(false);
+
     if (link === "home") {
       window.scrollTo({ top: 0, behavior: "smooth" });
-    } else {
-      const target = document.getElementById(link);
-      if (target) {
-        target.scrollIntoView({ behavior: "smooth" });
-      }
+      return;
+    }
+
+    const target = document.getElementById(link);
+    if (target) {
+      const navOffset = 80;
+      const elementPosition = target.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
     }
   };
 
-  const navItems = [
-    { id: "home" as const, label: "Home" },
-    { id: "about" as const, label: "About" },
-    { id: "services" as const, label: "Services" },
+  const navItems: Array<{ id: NavSection; label: string }> = [
+    { id: "home", label: "Home" },
+    { id: "about", label: "About" },
+    { id: "services", label: "Services" },
+    { id: "faq", label: "FAQ" },
   ];
 
   return (
@@ -70,7 +116,7 @@ export default function Navbar({
       {mobileMenuOpen && (
         <div
           onClick={() => setMobileMenuOpen(false)}
-          className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm md:hidden transition-opacity duration-300"
+          className="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm md:hidden transition-opacity duration-300"
         />
       )}
 
@@ -89,7 +135,6 @@ export default function Navbar({
             onClick={(e) => {
               e.preventDefault();
               handleLinkClick("home");
-              setMobileMenuOpen(false);
             }}
             className="flex items-center gap-2.5 sm:gap-3 cursor-pointer group shrink-0"
             title="Sakura Labs (www.sakuralabs.in)"
@@ -119,7 +164,7 @@ export default function Navbar({
             </div>
           </Link>
 
-          {/* Center: Navlinks (Home, About, Services) in Capsule Pill - Desktop */}
+          {/* Center: Navlinks (Home, About, Services, FAQ) in Capsule Pill - Desktop */}
           <nav className="hidden md:flex items-center bg-[#14151a] border border-white/10 rounded-full p-1 shadow-lg backdrop-blur-md">
             {navItems.map((item) => {
               const isActive = activeLink === item.id;
@@ -127,7 +172,7 @@ export default function Navbar({
                 <button
                   key={item.id}
                   onClick={() => handleLinkClick(item.id)}
-                  className={`flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition-all ${
+                  className={`flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
                     isActive
                       ? "bg-white/15 text-white shadow-inner"
                       : "text-zinc-400 hover:text-white"
@@ -147,7 +192,7 @@ export default function Navbar({
             <button
               onClick={() => handleLinkClick("contact")}
               className={`flex items-center gap-2.5 bg-[#14151a] border border-white/10 rounded-full pl-3.5 sm:pl-4 pr-1.5 py-1.5 shadow-lg backdrop-blur-md hover:border-white/25 hover:bg-[#191a21] transition-all group cursor-pointer ${
-                activeLink === "contact" ? "ring-1 ring-white/20" : ""
+                activeLink === "contact" ? "ring-1 ring-white/30 bg-white/10" : ""
               }`}
             >
               <span className="text-white text-xs sm:text-sm font-semibold tracking-wide">
@@ -175,7 +220,7 @@ export default function Navbar({
             <button
               onClick={() => setMobileMenuOpen((prev) => !prev)}
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#14151a] border border-white/10 flex items-center justify-center text-white shadow-lg backdrop-blur-md hover:border-white/25 hover:bg-[#191a21] transition-all active:scale-95"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#14151a] border border-white/10 flex items-center justify-center text-white shadow-lg backdrop-blur-md hover:border-white/25 hover:bg-[#191a21] transition-all active:scale-95 cursor-pointer"
             >
               {mobileMenuOpen ? (
                 <svg
@@ -223,11 +268,8 @@ export default function Navbar({
               return (
                 <button
                   key={item.id}
-                  onClick={() => {
-                    handleLinkClick(item.id);
-                    setMobileMenuOpen(false);
-                  }}
-                  className={`flex items-center justify-between w-full px-4 py-2.5 rounded-xl text-sm font-semibold transition-all ${
+                  onClick={() => handleLinkClick(item.id)}
+                  className={`flex items-center justify-between w-full px-4 py-2.5 rounded-xl text-sm font-semibold transition-all cursor-pointer ${
                     isActive
                       ? "bg-white/15 text-white shadow-inner"
                       : "text-zinc-300 hover:text-white hover:bg-white/5"
@@ -245,12 +287,9 @@ export default function Navbar({
 
             {/* Mobile Contact Action */}
             <button
-              onClick={() => {
-                handleLinkClick("contact");
-                setMobileMenuOpen(false);
-              }}
-              className={`flex items-center justify-between w-full bg-[#14151a] border border-white/10 rounded-xl px-4 py-2.5 shadow-lg hover:border-white/25 hover:bg-[#191a21] transition-all group ${
-                activeLink === "contact" ? "ring-1 ring-white/25" : ""
+              onClick={() => handleLinkClick("contact")}
+              className={`flex items-center justify-between w-full bg-[#14151a] border border-white/10 rounded-xl px-4 py-2.5 shadow-lg hover:border-white/25 hover:bg-[#191a21] transition-all group cursor-pointer ${
+                activeLink === "contact" ? "ring-1 ring-white/25 bg-white/10" : ""
               }`}
             >
               <span className="text-white text-sm font-semibold tracking-wide">

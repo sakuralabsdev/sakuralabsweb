@@ -80,7 +80,7 @@ function GalleryCard({ src, alt }: CardProps) {
 
 export default function FlowingGallery() {
   return (
-    <section id="about" className="relative w-full pt-16 sm:pt-24 md:pt-32 pb-12 sm:pb-20 overflow-hidden bg-[#07070a] select-none">
+    <section id="about" className="scroll-mt-24 sm:scroll-mt-28 relative w-full pt-16 sm:pt-24 md:pt-32 pb-12 sm:pb-20 overflow-hidden bg-[#07070a] select-none">
       {/* Inline styles to guarantee continuous animation execution across all environments */}
       <style>{`
         @keyframes flowLeft {

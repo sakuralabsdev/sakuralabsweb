@@ -49,7 +49,7 @@ export default function FAQSection() {
   };
 
   return (
-    <section id="faq" className="relative w-full bg-[#07070a] text-white py-20 sm:py-28 px-5 sm:px-8 lg:px-14 select-none">
+    <section id="faq" className="scroll-mt-24 sm:scroll-mt-28 relative w-full bg-[#07070a] text-white py-20 sm:py-28 px-5 sm:px-8 lg:px-14 select-none">
       {/* Background Subtle Ambience */}
       <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
 

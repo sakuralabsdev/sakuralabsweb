@@ -7,22 +7,19 @@ export default function ContactSection() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    service: "Digital Design",
-    budget: "$5k - $10k",
+    service: "Web Development",
     message: "",
   });
 
-  const [submitted, setSubmitted] = useState(false);
   const [copied, setCopied] = useState(false);
 
   const servicesList = [
-    "Digital Design",
-    "Branding",
-    "Web App Development",
+    "Web Development",
+    "App Dev (iOS & Android)",
+    "PC Software",
+    "Digital Design & Branding",
     "Complete Experience",
   ];
-
-  const budgetList = ["<$5k", "$5k - $15k", "$15k - $30k", "$30k+"];
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(contactDetails.email);
@@ -32,12 +29,24 @@ export default function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.email) return;
-    setSubmitted(true);
+
+    const parts = [
+      "👋 *New Project Inquiry - Sakura Labs*",
+      "",
+      `*Service:* ${formData.service || "Web Development"}`,
+      formData.name.trim() ? `*Name:* ${formData.name.trim()}` : null,
+      formData.email.trim() ? `*Email:* ${formData.email.trim()}` : null,
+      formData.message.trim() ? `*Details:* ${formData.message.trim()}` : null,
+    ].filter(Boolean);
+
+    const messageText = encodeURIComponent(parts.join("\n"));
+    const waUrl = `https://wa.me/918714244119?text=${messageText}`;
+
+    window.open(waUrl, "_blank");
   };
 
   return (
-    <section id="contact" className="relative w-full bg-[#07070a] text-white py-24 sm:py-32 px-5 sm:px-8 lg:px-14 select-none">
+    <section id="contact" className="scroll-mt-24 sm:scroll-mt-28 relative w-full bg-[#07070a] text-white py-24 sm:py-32 px-5 sm:px-8 lg:px-14 select-none">
       {/* Background Ambience */}
       <div className="absolute inset-0 bg-grid-pattern opacity-35 pointer-events-none" />
 
@@ -66,16 +75,18 @@ export default function ContactSection() {
           </h2>
 
           <p className="text-zinc-400 text-sm sm:text-base md:text-lg mt-4 leading-relaxed max-w-xl">
-            Have an ambitious concept or looking to redefine your digital presence? We&apos;d love to hear from you.
+            Have an ambitious concept or looking to redefine your digital presence? Send us your project details directly to WhatsApp.
           </p>
         </div>
 
-        {/* 2-Column Grid: Contact Info (Left) + Inquiry Form (Right) */}
+        {/* 2-Column Grid: Contact Info (Left) + Simplified Inquiry Form (Right) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-start">
-          {/* Left Column: Direct Info & Accents */}
+          {/* Left Column: Direct Info & Quick Contact Options */}
           <div className="lg:col-span-5 flex flex-col gap-6">
             {/* Direct Email Card */}
-            <div className="rounded-3xl bg-[#0e0f15]/90 border border-white/10 p-6 sm:p-8 backdrop-blur-xl shadow-xl flex flex-col justify-between">
+            <div className="rounded-3xl bg-[#0e0f15]/90 border border-white/10 p-6 sm:p-8 backdrop-blur-xl flex flex-col justify-between relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/10 rounded-full blur-2xl group-hover:bg-orange-500/15 transition-all" />
+
               <div>
                 <span className="text-xs font-mono uppercase tracking-wider text-zinc-400">
                   Direct Inquiries
@@ -84,7 +95,7 @@ export default function ContactSection() {
                   {contactDetails.email}
                 </h4>
                 <p className="text-zinc-400 text-xs sm:text-sm mt-2">
-                  Drop us a line for project proposals, partnerships, or press inquiries.
+                  Drop us a line for project proposals, partnerships, or inquiries.
                 </p>
               </div>
 
@@ -189,152 +200,104 @@ export default function ContactSection() {
                   <span>↗</span>
                 </a>
               </div>
-
-              <div className="pt-2 border-t border-white/5 flex items-center gap-3">
-                <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_10px_#34d399]" />
-                <span className="text-xs font-semibold text-zinc-300">
-                  Accepting select projects for Q2 / Q3 2026
-                </span>
-              </div>
             </div>
           </div>
 
-          {/* Right Column: Interactive Form */}
+          {/* Right Column: Simplified Inquiry Form */}
           <div className="lg:col-span-7">
             <div className="rounded-3xl sm:rounded-[36px] bg-[#0d0e14]/95 border border-white/10 p-7 sm:p-10 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.9)]">
-              {submitted ? (
-                <div className="py-12 text-center flex flex-col items-center">
-                  <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-3xl mb-4 shadow-[0_0_20px_rgba(52,211,153,0.3)]">
-                    ✓
-                  </div>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white">
-                    Thank you, {formData.name}!
-                  </h3>
-                  <p className="text-zinc-400 text-sm sm:text-base mt-2 max-w-md">
-                    We&apos;ve received your inquiry. Our team will review your project details and get back to you shortly at {formData.email}.
+              <div className="mb-6 pb-5 border-b border-white/10 flex items-center justify-between">
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">Project Inquiry</h3>
+                  <p className="text-xs text-zinc-400 mt-1">
+                    Fill in what you like &mdash; sends straight to WhatsApp with one click.
                   </p>
-                  <button
-                    onClick={() => {
-                      setSubmitted(false);
-                      setFormData({
-                        name: "",
-                        email: "",
-                        service: "Digital Design",
-                        budget: "$5k - $10k",
-                        message: "",
-                      });
-                    }}
-                    className="mt-6 px-6 py-2 rounded-full bg-white/10 hover:bg-white/15 text-xs font-semibold text-white transition-all cursor-pointer"
-                  >
-                    Send Another Message
-                  </button>
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-                  {/* Name & Email inputs */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-mono uppercase text-zinc-400 mb-2">
-                        Your Name *
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="Alex Morgan"
-                        className="w-full bg-[#15161f] border border-white/10 focus:border-white/30 focus:outline-none rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-500 transition-all"
-                      />
-                    </div>
+                <div className="hidden sm:flex items-center gap-1.5 text-[11px] font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  Instant WhatsApp
+                </div>
+              </div>
 
-                    <div>
-                      <label className="block text-xs font-mono uppercase text-zinc-400 mb-2">
-                        Your Email *
-                      </label>
-                      <input
-                        type="email"
-                        required
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder="alex@company.com"
-                        className="w-full bg-[#15161f] border border-white/10 focus:border-white/30 focus:outline-none rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-500 transition-all"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Service Selection */}
-                  <div>
-                    <label className="block text-xs font-mono uppercase text-zinc-400 mb-2.5">
-                      Service of Interest
-                    </label>
-                    <div className="flex flex-wrap gap-2">
-                      {servicesList.map((srv) => (
-                        <button
-                          key={srv}
-                          type="button"
-                          onClick={() => setFormData({ ...formData, service: srv })}
-                          className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
-                            formData.service === srv
-                              ? "bg-[#ff5500] text-white shadow-[0_0_12px_rgba(255,85,0,0.5)] border border-transparent"
-                              : "bg-[#15161f] text-zinc-300 border border-white/10 hover:border-white/20"
-                          }`}
-                        >
-                          {srv}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Budget Selection */}
-                  <div>
-                    <label className="block text-xs font-mono uppercase text-zinc-400 mb-2.5">
-                      Estimated Budget (USD)
-                    </label>
-                    <div className="flex flex-wrap gap-2">
-                      {budgetList.map((bgt) => (
-                        <button
-                          key={bgt}
-                          type="button"
-                          onClick={() => setFormData({ ...formData, budget: bgt })}
-                          className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
-                            formData.budget === bgt
-                              ? "bg-white text-black font-bold shadow-md"
-                              : "bg-[#15161f] text-zinc-400 border border-white/10 hover:border-white/20 hover:text-white"
-                          }`}
-                        >
-                          {bgt}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Message */}
+              <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+                {/* Name & Email inputs (Simplified & Optional) */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-mono uppercase text-zinc-400 mb-2">
-                      Project Details &amp; Vision
+                      Your Name
                     </label>
-                    <textarea
-                      rows={4}
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Tell us about your project goals, target launch timeline, or any specific requirements..."
-                      className="w-full bg-[#15161f] border border-white/10 focus:border-white/30 focus:outline-none rounded-xl p-4 text-sm text-white placeholder-zinc-500 transition-all resize-none"
+                    <input
+                      type="text"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      placeholder="Alex Morgan"
+                      className="w-full bg-[#15161f] border border-white/10 focus:border-white/30 focus:outline-none rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-500 transition-all"
                     />
                   </div>
 
-                  {/* Submit Button */}
-                  <button
-                    type="submit"
-                    className="w-full bg-[#0070f3] hover:bg-blue-600 active:scale-[0.99] text-white font-bold py-3.5 px-6 rounded-full transition-all flex items-center justify-center gap-2 shadow-[0_10px_30px_rgba(0,112,243,0.35)] cursor-pointer mt-2"
-                  >
-                    <span>Send Project Inquiry</span>
-                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <line x1="5" y1="12" x2="19" y2="12" />
-                      <polyline points="12 5 19 12 12 19" />
-                    </svg>
-                  </button>
-                </form>
-              )}
+                  <div>
+                    <label className="block text-xs font-mono uppercase text-zinc-400 mb-2">
+                      Your Email
+                    </label>
+                    <input
+                      type="text"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      placeholder="alex@company.com"
+                      className="w-full bg-[#15161f] border border-white/10 focus:border-white/30 focus:outline-none rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-500 transition-all"
+                    />
+                  </div>
+                </div>
+
+                {/* Service Selection */}
+                <div>
+                  <label className="block text-xs font-mono uppercase text-zinc-400 mb-2.5">
+                    Select Service
+                  </label>
+                  <div className="flex flex-wrap gap-2">
+                    {servicesList.map((srv) => (
+                      <button
+                        key={srv}
+                        type="button"
+                        onClick={() => setFormData({ ...formData, service: srv })}
+                        className={`px-3.5 py-2 rounded-full text-xs font-semibold transition-all cursor-pointer ${
+                          formData.service === srv
+                            ? "bg-[#25D366] text-black font-bold shadow-[0_0_15px_rgba(37,211,102,0.4)] border border-transparent"
+                            : "bg-[#15161f] text-zinc-300 border border-white/10 hover:border-white/20 hover:text-white"
+                        }`}
+                      >
+                        {srv}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Message / Details */}
+                <div>
+                  <label className="block text-xs font-mono uppercase text-zinc-400 mb-2">
+                    Project Details
+                  </label>
+                  <textarea
+                    rows={4}
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    placeholder="Tell us what you'd like to build, target launch timeline, or any specific ideas..."
+                    className="w-full bg-[#15161f] border border-white/10 focus:border-white/30 focus:outline-none rounded-xl p-4 text-sm text-white placeholder-zinc-500 transition-all resize-none"
+                  />
+                </div>
+
+                {/* Submit to WhatsApp Button */}
+                <button
+                  type="submit"
+                  className="w-full bg-[#25D366] hover:bg-[#20ba59] active:scale-[0.99] text-black font-bold py-3.5 px-6 rounded-full transition-all flex items-center justify-center gap-2.5 shadow-[0_10px_25px_rgba(37,211,102,0.35)] cursor-pointer mt-1"
+                >
+                  <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                    <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm.01 1.67c2.2 0 4.27.86 5.82 2.42a8.19 8.19 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.24 8.24-1.45 0-2.88-.38-4.14-1.11l-.3-.17-3.12.82.83-3.04-.19-.31a8.21 8.21 0 0 1-1.26-4.44c0-4.54 3.7-8.24 8.24-8.24zm4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.24-.75-.67-1.26-1.5-1.4-1.76-.14-.25-.01-.39.11-.51.11-.11.25-.29.38-.44.12-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43l-.48-.01c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08s.89 2.41 1.01 2.58c.13.17 1.75 2.67 4.24 3.75.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.17-.48-.29z" />
+                  </svg>
+                  <span>Send Project Inquiry via WhatsApp</span>
+                  <span>↗</span>
+                </button>
+              </form>
             </div>
           </div>
         </div>
