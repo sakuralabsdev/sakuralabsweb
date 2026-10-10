@@ -8,6 +8,7 @@ import ServicesStack from "@/components/ServicesStack";
 import FAQSection from "@/components/FAQSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import FloatingActions from "@/components/FloatingActions";
 
 export default function Home() {
   const [activeLink, setActiveLink] = useState<"home" | "about" | "services" | "contact">("home");
@@ -258,6 +259,9 @@ export default function Home() {
 
       {/* FOOTER */}
       <Footer />
+
+      {/* FLOATING ACTION BUTTONS (WHATSAPP, CALL, CHAT) */}
+      <FloatingActions />
     </div>
   );
 }

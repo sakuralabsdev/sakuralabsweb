@@ -6,6 +6,8 @@ import Link from "next/link";
 import { contactDetails } from "@/utils/contacts";
 
 export default function Footer() {
+  const currentYear = "2026";
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -186,7 +188,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
           <p>
-            © {new Date().getFullYear()} Sakura Labs (
+            © {currentYear} Sakura Labs (
             <a
               href="https://www.sakuralabs.in"
               target="_blank"
