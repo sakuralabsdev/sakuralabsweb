@@ -20,8 +20,9 @@ export default function Home() {
       id: 1,
       title: "GEO & AEO",
       subtitle: "AI Search & Growth",
+      character: "Satoru Gojo",
       bgGradient: "from-[#8b5cf6] via-[#7c3aed] to-[#5b21b6]",
-      glowColor: "rgba(139, 92, 246, 0.4)",
+      glowColor: "rgba(139, 92, 246, 0.45)",
       image: "/hero-cards/gojo.png",
       imageClass: "w-[105%] h-[82%] -bottom-1.5 sm:-bottom-2 md:-bottom-3 -left-1 sm:-left-2",
       rotation: "-rotate-[12deg]",
@@ -30,13 +31,15 @@ export default function Home() {
       width: "w-[76px] sm:w-[170px] md:w-[275px] lg:w-[290px]",
       height: "h-[118px] sm:h-[260px] md:h-[415px] lg:h-[435px]",
       badgeType: "none",
+      align: "left",
     },
     {
       id: 2,
       title: "App Dev",
       subtitle: "iOS & Android",
-      bgGradient: "from-[#ff5b65] via-[#ef3346] to-[#c71e32]",
-      glowColor: "rgba(255, 91, 101, 0.45)",
+      character: "Naruto Uzumaki",
+      bgGradient: "from-[#fb923c] via-[#f97316] to-[#ea580c]",
+      glowColor: "rgba(249, 115, 22, 0.45)",
       image: "/hero-cards/naruto.png",
       imageClass: "w-[125%] h-[86%] -bottom-1.5 sm:-bottom-3 md:-bottom-4 -left-1 sm:-left-3 md:-left-4",
       rotation: "-rotate-[6deg]",
@@ -45,11 +48,13 @@ export default function Home() {
       width: "w-[84px] sm:w-[185px] md:w-[285px] lg:w-[305px]",
       height: "h-[130px] sm:h-[285px] md:h-[445px] lg:h-[465px]",
       badgeType: "none",
+      align: "left",
     },
     {
       id: 3,
       title: "Web Development",
       subtitle: "Fast & Scalable",
+      character: "Monkey D. Luffy",
       bgGradient: "from-[#38bdf8] via-[#0ea5e9] to-[#0284c7]",
       glowColor: "rgba(14, 165, 233, 0.5)",
       image: "/hero-cards/luffy-002.png",
@@ -61,12 +66,14 @@ export default function Home() {
       height: "h-[142px] sm:h-[310px] md:h-[485px] lg:h-[515px]",
       badgeType: "none",
       isCenter: true,
+      align: "left",
     },
     {
       id: 4,
       title: "Performance Ads",
       subtitle: "Meta & Google",
-      bgGradient: "from-[#34d399] via-[#10b981] to-[#059669]",
+      character: "Son Goku",
+      bgGradient: "from-[#10b981] via-[#059669] to-[#047857]",
       glowColor: "rgba(16, 185, 129, 0.45)",
       image: "/hero-cards/goku.png",
       imageClass: "w-[112%] h-[78%] -bottom-1 sm:-bottom-2 md:-bottom-3 left-1/2 -translate-x-[48%]",
@@ -76,13 +83,15 @@ export default function Home() {
       width: "w-[84px] sm:w-[185px] md:w-[285px] lg:w-[305px]",
       height: "h-[130px] sm:h-[285px] md:h-[445px] lg:h-[465px]",
       badgeType: "none",
+      align: "right",
     },
     {
       id: 5,
       title: "Web & UI Design",
       subtitle: "Modern & Aesthetic",
-      bgGradient: "from-[#3b82f6] via-[#2563eb] to-[#1d4ed8]",
-      glowColor: "rgba(37, 99, 235, 0.4)",
+      character: "Ichigo Kurosaki",
+      bgGradient: "from-[#f43f5e] via-[#e11d48] to-[#9f1239]",
+      glowColor: "rgba(225, 29, 72, 0.45)",
       image: "/hero-cards/ichigo.png",
       imageClass: "w-[122%] h-[88%] -bottom-2 sm:-bottom-4 md:-bottom-8 left-1/2 -translate-x-[46%]",
       rotation: "rotate-[12deg]",
@@ -91,6 +100,7 @@ export default function Home() {
       width: "w-[76px] sm:w-[170px] md:w-[275px] lg:w-[290px]",
       height: "h-[118px] sm:h-[260px] md:h-[415px] lg:h-[435px]",
       badgeType: "none",
+      align: "right",
     },
   ];
 
@@ -106,19 +116,6 @@ export default function Home() {
           background: "radial-gradient(ellipse 95% 70% at 50% 30%, transparent 25%, #07070a 95%)"
         }}
       />
-
-      {/* FLOATING DECORATIONS */}
-      {/* Nintendo Switch Angled Console Behind Mario & Fortnite */}
-      <div className="absolute left-[6%] sm:left-[16%] md:left-[22%] bottom-[45px] sm:bottom-[110px] md:bottom-[170px] w-24 sm:w-52 md:w-76 aspect-square pointer-events-none select-none -rotate-12 opacity-65 z-0">
-        <Image
-          src="/hero/switch-console.png"
-          alt="Nintendo Switch Handheld Console"
-          width={300}
-          height={300}
-          className="object-contain filter drop-shadow-[0_25px_35px_rgba(0,0,0,0.95)]"
-          priority
-        />
-      </div>
 
       {/* TOP NAVBAR COMPONENT */}
       <Navbar
@@ -226,7 +223,7 @@ export default function Home() {
 
                 {/* Top Card Info: Service Title & Subtitle */}
                 <div className="relative z-20 flex items-start justify-between w-full">
-                  <div className="max-w-full">
+                  <div className={`max-w-full ${card.align === "right" ? "ml-auto text-right" : "text-left"}`}>
                     <h2 className="text-white font-extrabold text-[8px] sm:text-base md:text-2xl lg:text-3xl tracking-tight drop-shadow-sm whitespace-nowrap leading-tight">
                       {card.title}
                     </h2>
@@ -240,7 +237,7 @@ export default function Home() {
                 <div className={`absolute ${card.imageClass} pointer-events-none select-none z-10 transition-transform duration-300 ${isHovered ? "scale-105" : ""}`}>
                   <Image
                     src={card.image}
-                    alt={`${card.title} - Sakura Labs Digital Agency`}
+                    alt={`${card.title} (${card.character}) - Sakura Labs Digital Agency`}
                     fill
                     sizes="(max-width: 640px) 95px, (max-width: 768px) 210px, 340px"
                     className="object-contain object-bottom filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.5)]"
